@@ -28,10 +28,23 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
-    implementation 'com.google.endpoints:endpoints-framework:2.0.9'
+//    implementation 'com.google.endpoints:endpoints-framework:2.0.9'
+    implementation 'com.google.endpoints:endpoints-framework:2.0.10'
     implementation 'javax.inject:javax.inject:1'
 
     implementation 'javax.servlet:servlet-api:2.5'
-    implementation 'com.google.api-client:google-api-client:1.23.0'
-    implementation 'com.google.http-client:google-http-client-android:1.23.0'
+    implementation 'com.google.api-client:google-api-client:1.30.4'
+    implementation 'com.google.http-client:google-http-client-android:1.32.0'
+}
+
+appengine {
+
+    deploy {   // deploy configuration
+        stopPreviousVersion = true  // default - stop the current version
+        promote = true              // default - & make this the current version
+
+        // App Engine tasks configuration
+        tools.cloudSdkHome="~/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/google-cloud-sdk/bin"
+    }
+
 }
