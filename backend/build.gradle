@@ -51,7 +51,7 @@ appengine {
         promote = true              // default - & make this the current version
 
         // App Engine tasks configuration
-//        tools.cloudSdkHome="~/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/google-cloud-sdk/"
+        tools.cloudSdkHome="~/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/google-cloud-sdk/"
     }
 
 }
