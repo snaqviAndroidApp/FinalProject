@@ -106,7 +106,11 @@ public class MainActivityFragment extends Fragment {
             String name = params[0].second;
 
             try {
-                return myApiService.sayHi(getJokes()).execute().getData();
+//                return myApiService.sayHi(getJokes()).execute().getData();            // not working
+//                return myApiService.sayHi("Hmm").execute().getData();            // working...
+                return myApiService.sayHi().execute().getData();
+
+
             } catch (IOException e) {
                 return e.getMessage();
             }

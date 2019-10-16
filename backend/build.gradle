@@ -8,8 +8,6 @@ buildscript {
     dependencies {
         // V2: Include this dependency when using Endpoints Framework v2
         classpath 'com.google.guava:guava:24.1-jre'
-//        classpath 'com.android.tools.build:gradle:3.5.1'
-
         classpath 'com.google.cloud.tools:endpoints-framework-gradle-plugin:1.0.3'
         classpath 'com.google.cloud.tools:appengine-gradle-plugin:1.3.3'
     }
@@ -51,7 +49,7 @@ appengine {
         promote = true              // default - & make this the current version
 
         // App Engine tasks configuration
-        tools.cloudSdkHome="~/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/google-cloud-sdk/"
+//        tools.cloudSdkHome="~/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/google-cloud-sdk/"
     }
 
 }
