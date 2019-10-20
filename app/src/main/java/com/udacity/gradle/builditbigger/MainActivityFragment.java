@@ -35,7 +35,6 @@ public class MainActivityFragment extends Fragment {
     View root;
     Button bJoke;
 
-
     public MainActivityFragment() {
     }
 
@@ -58,8 +57,6 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
-
-
         AdView mAdView = root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
         // get test ads on a physical device. e.g.
@@ -69,13 +66,6 @@ public class MainActivityFragment extends Fragment {
                 .build();
         mAdView.loadAd(adRequest);
         return root;
-    }
-
-    private String getJokes() {
-
-        JavaJokes javaJokes = new JavaJokes();
-        return javaJokes.getJoke();
-
     }
 
     class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
@@ -91,7 +81,6 @@ public class MainActivityFragment extends Fragment {
                         // options for running against local devappserver
                         // - 10.0.2.2 is localhost's IP address in Android emulator
                         // - turn off compression when running against local devappserver
-//                        .setRootUrl("http://10.0.2.2:8080/_ah/api/")                  // came with sample
                         .setRootUrl("http://192.168.0.2:8080/_ah/api/")                 // my pc ip-address
                         .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                             @Override
@@ -99,18 +88,14 @@ public class MainActivityFragment extends Fragment {
                                 abstractGoogleClientRequest.setDisableGZipContent(true);
                             }
                         });
-                myApiService = builder.build();                                         // end options for devappserver
+                myApiService = builder.build();                                      // end options for devappserver
             }
 
             context = params[0].first;
             String name = params[0].second;
 
             try {
-//                return myApiService.sayHi(getJokes()).execute().getData();            // not working
-//                return myApiService.sayHi("Hmm").execute().getData();            // working...
-                return myApiService.sayHi().execute().getData();
-
-
+                return myApiService.sayHi().execute().getData();                     //  working
             } catch (IOException e) {
                 return e.getMessage();
             }
@@ -121,7 +106,5 @@ public class MainActivityFragment extends Fragment {
             Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
         }
     }
-
-
 
 }

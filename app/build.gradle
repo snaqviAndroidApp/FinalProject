@@ -32,18 +32,32 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
+
+    flavorDimensions("v1.0")
+    productFlavors{
+        free{
+            dimension "v1.0"
+            applicationIdSuffix ".free"
+        }
+        paid{
+            dimension "v1.0"
+            applicationIdSuffix ".paid"
+        }
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')
-    implementation project (':javajokelib')                                           // Java - Library
+    implementation project (':javajokelib')                                    // Java - Library
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
     implementation ("com.google.android.gms:play-services-ads:18.2.0")
-    implementation 'com.google.api-client:google-api-client:1.30.3'
+    implementation 'com.google.api-client:google-api-client:1.30.4'
     implementation 'com.google.http-client:google-http-client-android:1.32.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
 

@@ -1,21 +1,52 @@
-Oct 15, 2019 10:32:46 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+Oct 19, 2019 10:12:30 AM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFO: Overwriting system property key 'java.util.logging.config.file', value '/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/google-cloud-sdk/platform/google_appengine/google/appengine/tools/java/config/sdk/logging.properties' with value 'WEB-INF/logging.properties' from '/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/WEB-INF/appengine-web.xml'
-2019-10-15 22:32:51.911:INFO::main: Logging initialized @5644ms to org.eclipse.jetty.util.log.StdErrLog
-2019-10-15 22:32:51.943:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
-Oct 16, 2019 3:32:52 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+2019-10-19 10:12:35.603:INFO::main: Logging initialized @6377ms to org.eclipse.jetty.util.log.StdErrLog
+2019-10-19 10:12:35.661:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
+Oct 19, 2019 3:12:36 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
 WARNING: Your working directory, (/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend) is not equal to your 
 web application root (/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-2019-10-15 22:32:52.193:INFO:oejs.Server:main: jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 1.8.0_202-release-1483-b49-5587405
-2019-10-15 22:32:52.476:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@eadd4fb{/,file:///Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/,AVAILABLE}{/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend}
-2019-10-15 22:32:52.476:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
-2019-10-15 22:32:52.476:INFO:oejs.session:main: node0 Scavenging disabled
-2019-10-15 22:32:52.489:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@185d8b6{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
-2019-10-15 22:32:52.499:INFO:oejs.Server:main: Started @6232ms
-Oct 16, 2019 3:32:52 AM com.google.appengine.tools.development.AbstractModule startup
+2019-10-19 10:12:36.365:INFO:oejs.Server:main: jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 1.8.0_202-release-1483-b49-5587405
+2019-10-19 10:12:37.232:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@eadd4fb{/,file:///Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/,AVAILABLE}{/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend}
+2019-10-19 10:12:37.233:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
+2019-10-19 10:12:37.233:INFO:oejs.session:main: node0 Scavenging disabled
+2019-10-19 10:12:37.249:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@185d8b6{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2019-10-19 10:12:37.259:INFO:oejs.Server:main: Started @8032ms
+Oct 19, 2019 3:12:37 PM com.google.appengine.tools.development.AbstractModule startup
 INFO: Module instance default is running at http://localhost:8080/
-Oct 16, 2019 3:32:52 AM com.google.appengine.tools.development.AbstractModule startup
+Oct 19, 2019 3:12:37 PM com.google.appengine.tools.development.AbstractModule startup
 INFO: The admin console is running at http://localhost:8080/_ah/admin
-Oct 15, 2019 10:32:52 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+Oct 19, 2019 10:12:37 AM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFO: Dev App Server is now running
+Oct 19, 2019 10:20:52 AM com.google.appengine.api.datastore.dev.LocalDatastoreService init
+INFO: Local Datastore initialized: 
+	Type: High Replication
+	Storage: /Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/WEB-INF/appengine-generated/local_db.bin
+Oct 19, 2019 10:20:53 AM com.google.appengine.api.datastore.dev.LocalDatastoreService load
+INFO: The backing store, /Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/WEB-INF/appengine-generated/local_db.bin, does not exist. It will be created.
+Oct 19, 2019 10:20:53 AM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /apple-touch-icon-precomposed.png
+Oct 19, 2019 10:20:53 AM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /apple-touch-icon.png
+Oct 19, 2019 10:20:54 AM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /favicon.ico
+Oct 19, 2019 10:21:04 AM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /favicon.ico
+Oct 19, 2019 10:21:08 AM com.google.appengine.api.search.dev.LocalSearchService <init>
+INFO: Local search service created
+Oct 19, 2019 10:21:08 AM com.google.appengine.api.search.dev.LuceneDirectoryMap$FileBased <init>
+SEVERE: File base storage: root directory doesn't exist
+Oct 19, 2019 10:21:08 AM com.google.appengine.api.search.dev.LocalSearchService init
+INFO: search initialized
+Oct 19, 2019 10:21:08 AM com.google.appengine.api.search.dev.LocalSearchService start
+INFO: search started
+Oct 19, 2019 10:21:08 AM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /favicon.ico
+2019-10-19 10:35:30.883:INFO:oejs.AbstractConnector:pool-1-thread-1: Stopped NetworkTrafficSelectChannelConnector@185d8b6{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+Shutting down.
+2019-10-19 10:35:30.897:INFO:oejsh.ContextHandler:pool-1-thread-1: Stopped c.g.a.t.d.j.DevAppEngineWebAppContext@eadd4fb{/,file:///Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend/,UNAVAILABLE}{/Users/azeemazem/dev/adb/nanodeg_/udacity2_reCloned/FinalProject/backend/build/exploded-backend}
+Oct 19, 2019 10:35:30 AM com.google.appengine.tools.development.AbstractModule shutdown
+INFO: Shutting down module instance default
+Oct 19, 2019 10:35:30 AM com.google.appengine.api.datastore.dev.LocalDatastoreService cleanupActiveServices
+INFO: scheduler shutting down.
