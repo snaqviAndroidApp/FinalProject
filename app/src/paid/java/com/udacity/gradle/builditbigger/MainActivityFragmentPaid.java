@@ -29,24 +29,27 @@ import ghar.dfw.perm.javajokelib.JavaJokes;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+//public class MainActivityFragment extends Fragment {
+public class MainActivityFragmentPaid extends Fragment {
 
-    TextView jokePlaceHolder;
+    TextView jokePlaceHolder_paid;
     View root;
     Button bJoke;
 
-    public MainActivityFragment() {
+//    public MainActivityFragment() {
+    public MainActivityFragmentPaid() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        View root = inflater.inflate(R.layout.fragment_main, container, false);
-        root = inflater.inflate(R.layout.fragment_main, container, false);
+//        root = inflater.inflate(R.layout.fragment_main, container, false);
+        root = inflater.inflate(R.layout.fragment_main_paid, container, false);
 
-        // widget (textView for joke
-        jokePlaceHolder = root.findViewById(R.id.instructions_text_view);
-        jokePlaceHolder.setText("Hi from Fragment");
+        // widget textView for joke
+        jokePlaceHolder_paid = root.findViewById(R.id.instructions_text_view_paid);
+        jokePlaceHolder_paid.setText("Hi from Fragment Paid");
 
         bJoke = root.findViewById(R.id.bTellJoke);
         bJoke.setOnClickListener(new View.OnClickListener() {
@@ -56,14 +59,14 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
-        AdView mAdView = root.findViewById(R.id.adView);
+//        AdView mAdView = root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
         // get test ads on a physical device. e.g.
         // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mAdView.loadAd(adRequest);
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                .build();
+//        mAdView.loadAd(adRequest);
         return root;
     }
 

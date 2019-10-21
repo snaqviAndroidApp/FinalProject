@@ -12,7 +12,8 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityPaid extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +55,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_jokeDisplay(View view) {
     }
-
-//    public void tellJoke(View view) {
-//        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-//    }
-
 
 }
