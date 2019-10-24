@@ -29,15 +29,14 @@ import ghar.dfw.perm.javajokelib.JavaJokes;
 /**
  * A placeholder fragment containing a simple view.
  */
-//public class MainActivityFragment extends Fragment {
-public class MainActivityFragmentPaid extends Fragment {
+public class MainActivityFragment extends Fragment {
 
     TextView jokePlaceHolder_paid;
     View root;
     Button bJoke;
 
 //    public MainActivityFragment() {
-    public MainActivityFragmentPaid() {
+    public MainActivityFragment() {
     }
 
     @Override
@@ -45,10 +44,10 @@ public class MainActivityFragmentPaid extends Fragment {
                              Bundle savedInstanceState) {
 //        View root = inflater.inflate(R.layout.fragment_main, container, false);
 //        root = inflater.inflate(R.layout.fragment_main, container, false);
-        root = inflater.inflate(R.layout.fragment_main_paid, container, false);
+        root = inflater.inflate(R.layout.fragment_main, container, false);
 
         // widget textView for joke
-        jokePlaceHolder_paid = root.findViewById(R.id.instructions_text_view_paid);
+        jokePlaceHolder_paid = root.findViewById(R.id.instructions_text_view);
         jokePlaceHolder_paid.setText("Hi from Fragment Paid");
 
         bJoke = root.findViewById(R.id.bTellJoke);
