@@ -52,7 +52,12 @@ public class MainActivityFragment extends Fragment {
         bJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), "Manfred"));
+                new EndpointsAsyncTask(new OnPostTask() {
+                    @Override
+                    public void onPostTask(String result) {
+                        Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+                    }
+                }).execute(new Pair<Context, String>(getActivity(), "Manfred"));
             }
         });
 
@@ -65,45 +70,6 @@ public class MainActivityFragment extends Fragment {
                 .build();
         mAdView.loadAd(adRequest);
         return root;
-    }
-
-    class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
-//        private static MyApi myApiService = null;
-        private MyApi myApiService = null;
-        private Context context;
-
-        @Override
-        protected String doInBackground(Pair<Context, String>... params) {
-            if(myApiService == null) {  // Only do this once
-                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
-                        new AndroidJsonFactory(), null)
-                        // options for running against local devappserver
-                        // - 10.0.2.2 is localhost's IP address in Android emulator
-                        // - turn off compression when running against local devappserver
-                        .setRootUrl("http://192.168.0.2:8080/_ah/api/")                 // my pc ip-address
-                        .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                            @Override
-                            public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-                                abstractGoogleClientRequest.setDisableGZipContent(true);
-                            }
-                        });
-                myApiService = builder.build();                                      // end options for devappserver
-            }
-
-            context = params[0].first;
-            String name = params[0].second;
-
-            try {
-                return myApiService.sayHi().execute().getData();                     //  working
-            } catch (IOException e) {
-                return e.getMessage();
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
-        }
     }
 
 }
