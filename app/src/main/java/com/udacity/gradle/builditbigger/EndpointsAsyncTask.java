@@ -12,7 +12,8 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+//public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private MyApi myApiService = null;
     private Context context;
     private OnPostTask onPostTask_Paid;
@@ -21,13 +22,15 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
         this.onPostTask_Paid = inOnPostTask_Paid;
     }
 
+
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+//    protected String doInBackground(Pair<Context, String>... params) {
+    protected String doInBackground(Void... params) {
         if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
-                    .setRootUrl("http://192.168.0.2:8080/_ah/api/")                 // my pc ip-address
+                    .setRootUrl("http://192.168.0.2:8080/_ah/api/")                             // pc ip-address
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -37,14 +40,14 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             myApiService = builder.build();                                      // end options for devappserver
         }
 
-        context = params[0].first;
-        String name = params[0].second;
-
         try {
+//            context = params[0].first;
+//            String name = params[0].second;
             return myApiService.sayHi().execute().getData();                     //  working
         } catch (IOException e) {
             return e.getMessage();
         }
+
     }
 
     @Override

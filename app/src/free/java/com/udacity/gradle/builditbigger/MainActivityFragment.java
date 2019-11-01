@@ -57,7 +57,8 @@ public class MainActivityFragment extends Fragment {
                     public void onPostTask(String result) {
                         Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
                     }
-                }).execute(new Pair<Context, String>(getActivity(), "Manfred"));
+//                }).execute(new Pair<Context, String>(getActivity(), "Manfred"));
+                }).execute();
             }
         });
 

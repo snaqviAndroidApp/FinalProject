@@ -59,22 +59,26 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
-    implementation("com.google.android.gms:play-services-ads:18.2.0")
-    implementation 'com.google.api-client:google-api-client:1.30.4'
-    implementation 'com.google.http-client:google-http-client-android:1.32.0'
-    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    freeImplementation("com.google.android.gms:play-services-ads:18.2.0") //   supposedly this should work for both free and paid
+    freeImplementation 'com.google.api-client:google-api-client:1.30.5'
+    freeImplementation 'com.google.http-client:google-http-client-android:1.32.0'
+    freeImplementation 'com.google.code.findbugs:jsr305:3.0.2'
 
     implementation 'com.google.android.material:material:1.0.0'
-
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    testImplementation 'junit:junit:4.12'
+//    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
 
     // V2: Endpoints Framework v2 migration
     endpointsServer project(path: ':backend', configuration: 'endpoints')
-    implementation 'com.google.api-client:google-api-client:+'
+//    implementation 'com.google.api-client:google-api-client:+'
+    implementation 'com.google.api-client:google-api-client:1.30.5'
     implementation 'com.google.http-client:google-http-client-android:1.32.0'
 }
