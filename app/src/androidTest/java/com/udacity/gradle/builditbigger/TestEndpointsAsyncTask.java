@@ -39,16 +39,15 @@ public class TestEndpointsAsyncTask {
                 Assert.assertNotEquals("", result);
                 Assert.assertNotEquals(NULL, result);
                 Assert.assertNotEquals(Error.class, result);
-
                 countDownLatch.countDown();                 //           notify the count down latch
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
 
-//        }).execute();
         }).execute(new Pair<Context, String>(textContext, "Manfred"));
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

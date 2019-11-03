@@ -31,24 +31,18 @@ import ghar.dfw.perm.javajokelib.JavaJokes;
  */
 public class MainActivityFragment extends Fragment {
 
-    TextView jokePlaceHolder;
-    View root;
-    Button bJoke;
-
     public MainActivityFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        View root = inflater.inflate(R.layout.fragment_main, container, false);
-        root = inflater.inflate(R.layout.fragment_main, container, false);
+        View root = inflater.inflate(R.layout.fragment_main, container, false);
+        TextView jokePlaceHolder = root.findViewById(R.id.instructions_text_view);           /**  widget (textView for joke) **/
 
-        // widget (textView for joke
-        jokePlaceHolder = root.findViewById(R.id.instructions_text_view);
         jokePlaceHolder.setText("Hi from Fragment");
 
-        bJoke = root.findViewById(R.id.bTellJoke);
+        Button bJoke = root.findViewById(R.id.bTellJoke);
         bJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +52,6 @@ public class MainActivityFragment extends Fragment {
                         Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
                     }
                 }).execute(new Pair<Context, String>(getActivity(), "Manfred"));
-//                }).execute();
             }
         });
 
