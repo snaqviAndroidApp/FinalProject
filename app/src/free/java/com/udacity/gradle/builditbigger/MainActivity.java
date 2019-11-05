@@ -55,9 +55,5 @@ public class MainActivity extends AppCompatActivity {
     public void onClick_jokeDisplay(View view) {
     }
 
-//    public void tellJoke(View view) {
-//        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-//    }
-
 
 }

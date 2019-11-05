@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
 
+
+
 buildscript {
     repositories {
         jcenter()
@@ -70,7 +72,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-//    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
     // Optional -- Mockito framework
@@ -81,4 +82,9 @@ dependencies {
 //    implementation 'com.google.api-client:google-api-client:+'
     implementation 'com.google.api-client:google-api-client:1.30.5'
     implementation 'com.google.http-client:google-http-client-android:1.32.0'
+}
+
+
+task helloExecution { task ->
+    println "Hello execution phase task! $task.name"
 }
