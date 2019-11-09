@@ -1,7 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.util.Pair;
@@ -15,15 +15,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
-import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
-
-import java.io.IOException;
-
-import ghar.dfw.perm.javajokelib.JavaJokes;
 
 
 /**
@@ -44,14 +35,18 @@ public class MainActivityFragment extends Fragment {
 
         Button bJoke = root.findViewById(R.id.bTellJoke);
         bJoke.setOnClickListener(new View.OnClickListener() {
+
+
+            /** Sending data to display activity: DeliverJoke.java **/
+
             @Override
             public void onClick(View v) {
                 new EndpointsAsyncTask(new OnPostTask() {
+
                     @Override
-                    public void onPostTask(String result) {
-                        Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
-                    }
-                }).execute(new Pair<Context, String>(getActivity(), "Manfred"));
+                    public void onPostTask(String result) {}
+                }).execute(new Pair<Context, String>(getActivity(), "")
+                );
             }
         });
 

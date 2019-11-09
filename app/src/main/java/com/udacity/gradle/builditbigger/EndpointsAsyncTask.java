@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import androidx.core.util.Pair;
 
@@ -12,23 +13,21 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, Pair<Context, String>> {
+
     private MyApi myApiService = null;
     private Context context;
-    private OnPostTask onPostTask_Paid;
+    private OnPostTask onPostTask_;
 
-    public EndpointsAsyncTask(OnPostTask inOnPostTask_Paid){
-        this.onPostTask_Paid = inOnPostTask_Paid;
+    public EndpointsAsyncTask(OnPostTask inOnPostTask__){
+        this.onPostTask_ = inOnPostTask__;
     }
 
-
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
-//    protected String doInBackground(Void... params) {
-        if (myApiService == null) {  // Only do this once
+    protected Pair<Context, String> doInBackground(Pair<Context, String>... params) {
+        if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    // options for running against local devappserver
                     .setRootUrl("http://192.168.0.2:8080/_ah/api/")                             // pc ip-address
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
@@ -36,22 +35,24 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
-            myApiService = builder.build();                                      // end options for devappserver
+            myApiService = builder.build();                                         // end options for devappserver
         }
-
+        context = params[0].first;
+        String name = params[0].second;
         try {
-            context = params[0].first;
-            String name = params[0].second;
-            return myApiService.sayHi().execute().getData();                     //  working
+            return new Pair<>(context, myApiService.sayHi().execute().getData());
         } catch (IOException e) {
-            return e.getMessage();
+            e.printStackTrace();
+            return new Pair<>(context, e.getLocalizedMessage());
         }
-
     }
 
     @Override
-    protected void onPostExecute(String result) {
-        onPostTask_Paid.onPostTask(result);
+    protected void onPostExecute(Pair<Context, String> contextStringPair) {
+        Intent iDeliverJoke = new Intent(contextStringPair.first, DeliverJoke.class);
+        String jokeStr = (contextStringPair.second != null) ? contextStringPair.second : "sorry, no joke available! ";
+        iDeliverJoke.putExtra("joke", jokeStr);
+        context.startActivity(iDeliverJoke);
     }
 }
 

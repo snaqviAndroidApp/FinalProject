@@ -33,6 +33,7 @@ public class TestEndpointsAsyncTask {
         final CountDownLatch countDownLatch = new CountDownLatch(1);
         new EndpointsAsyncTask(new OnPostTask() {
             @Override
+//            public void onPostTask(String result, Class<DeliverJoke> deliverJokeClass) {
             public void onPostTask(String result) {
                 Log.d("asnycTask test results: ",  result);
 
@@ -43,8 +44,9 @@ public class TestEndpointsAsyncTask {
 
             }
 
-        }).execute(new Pair<Context, String>(textContext, "Manfred"));
+        }).execute(new Pair<Context, String>(textContext, ""));
         try {
+            Assert.assertEquals("", "");
             countDownLatch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
