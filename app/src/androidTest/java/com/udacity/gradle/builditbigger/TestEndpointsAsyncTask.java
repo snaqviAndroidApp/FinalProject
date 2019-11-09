@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 
 
 import static java.sql.Types.NULL;
@@ -20,6 +21,7 @@ import static java.sql.Types.NULL;
 public class TestEndpointsAsyncTask {
 
     private Context textContext;
+    Pair<Context, String> newPair;
 
     @Before
     public void initComponent(){
@@ -31,25 +33,32 @@ public class TestEndpointsAsyncTask {
     @Test
     public void testAsyncTask(){
         final CountDownLatch countDownLatch = new CountDownLatch(1);
-        new EndpointsAsyncTask(new OnPostTask() {
-            @Override
-//            public void onPostTask(String result, Class<DeliverJoke> deliverJokeClass) {
-            public void onPostTask(String result) {
-                Log.d("asnycTask test results: ",  result);
-
-                Assert.assertNotEquals("", result);
-                Assert.assertNotEquals(NULL, result);
-                Assert.assertNotEquals(Error.class, result);
-                countDownLatch.countDown();                 //           notify the count down latch
-
-            }
-
-        }).execute(new Pair<Context, String>(textContext, ""));
         try {
-            Assert.assertEquals("", "");
-            countDownLatch.await();
+            newPair = new EndpointsAsyncTask(new OnPostTask() {
+
+                @Override
+                public void onPostTask(String result) {
+                    Log.d("asnycTask test results: ", result);
+
+//                    countDownLatch.countDown();
+                }
+             }
+            ).execute(new Pair<Context, String>(textContext, ""))
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        // try {
+            Assert.assertNotEquals("", newPair.second);
+            Assert.assertNotEquals(NULL, newPair.second);
+            Assert.assertNotEquals(Error.class, newPair.second);
+
+//        countDownLatch.await();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }
