@@ -32,15 +32,12 @@ public class TestEndpointsAsyncTask {
 
     @Test
     public void testAsyncTask(){
-        final CountDownLatch countDownLatch = new CountDownLatch(1);
         try {
             newPair = new EndpointsAsyncTask(new OnPostTask() {
 
                 @Override
                 public void onPostTask(String result) {
                     Log.d("asnycTask test results: ", result);
-
-//                    countDownLatch.countDown();
                 }
              }
             ).execute(new Pair<Context, String>(textContext, ""))
@@ -51,14 +48,9 @@ public class TestEndpointsAsyncTask {
             e.printStackTrace();
         }
 
-        // try {
-            Assert.assertNotEquals("", newPair.second);
-            Assert.assertNotEquals(NULL, newPair.second);
-            Assert.assertNotEquals(Error.class, newPair.second);
+        Assert.assertNotEquals("", newPair.second);
+        Assert.assertNotEquals(NULL, newPair.second);
+        Assert.assertNotEquals(Error.class, newPair.second);
 
-//        countDownLatch.await();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
     }
 }

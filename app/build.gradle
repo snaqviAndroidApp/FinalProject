@@ -31,9 +31,15 @@ android {
     }
 
     buildTypes {
+
+        String debugUrl = "\"http://192.168.0.2:8080/_ah/api/\""
+        debug{
+            buildConfigField "String", "debug_URL", debugUrl
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "URL", "\"dev.example.com\""
 
         }
     }

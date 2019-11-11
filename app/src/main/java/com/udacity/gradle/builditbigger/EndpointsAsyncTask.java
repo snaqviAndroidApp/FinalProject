@@ -13,6 +13,8 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import static com.udacity.gradle.builditbigger.BuildConfig.debug_URL;
+
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, Pair<Context, String>> {
 
     private MyApi myApiService = null;
@@ -28,7 +30,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, P
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    .setRootUrl("http://192.168.0.2:8080/_ah/api/")                             // pc ip-address
+                    .setRootUrl(debug_URL)
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
